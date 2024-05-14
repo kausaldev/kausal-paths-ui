@@ -13,6 +13,7 @@ import type {
   GetAvailableInstancesQueryVariables,
 } from 'common/__generated__/graphql.js';
 import { ServerAuth } from './auth.js';
+import { wildcardDomains } from '../utils/environment.ts';
 
 const GET_AVAILABLE_INSTANCES = gql`
   query GetAvailableInstances($hostname: String!) {
@@ -52,6 +53,7 @@ class PathsServer extends BaseServer {
   getApolloHeaders(req: BaseServerRequest) {
     const headers = super.getApolloHeaders(req);
     headers['x-paths-instance-hostname'] = req.currentURL.hostname;
+    headers['x-wildcard-domains'] = wildcardDomains;
     return headers;
   }
 

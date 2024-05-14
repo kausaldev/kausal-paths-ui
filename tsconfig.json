@@ -16,7 +16,8 @@
     "jsx": "preserve",
     "strictNullChecks": true,
     "incremental": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "allowImportingTsExtensions": true
   },
   "include": [
     "next-env.d.ts",
